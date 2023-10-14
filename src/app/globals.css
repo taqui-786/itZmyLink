@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+ 
+    --primary: 220.9 39.3% 11%;
+    --primary-foreground: 210 20% 98%;
+ 
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+ 
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+ 
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 224 71.4% 4.1%;
+ 
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+ 
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+ 
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+ 
+    --primary: 210 20% 98%;
+    --primary-foreground: 220.9 39.3% 11%;
+ 
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+ 
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+ 
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+ 
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 216 12.2% 83.9%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+body{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+.hide_scrollbar::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
+body::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+/* MOBILE TEMPLATE DESIGN  */
+.container{
+  max-width: 600px;
+  margin: 4px auto;
+}
+
+.phone{
+  position: relative;
+  background: #1e1e1e;
+  height: 625px;
+  width: 345px;
+  border-radius: 25px;
+  margin: 0 auto;
+}
+
+.camera{
+  position: absolute;
+  background: #7A7A7A;
+  height: 15px;
+  width: 15px;
+  border-radius: 15px;
+  top: 7px;
+  left: 166px;
+  z-index: +9;
+}
+
+.speaker{
+  position: absolute;
+  background: #000;
+  height: 23px;
+  width: 45px;
+  border-radius: 0 0 27px 27px;
+  top: 7px;
+  left: 151px;
+  z-index: +8;
+}
+
+.sleep-button{
+  position: absolute;
+  background: #1e1e1e;
+  height: 35px; 
+  width: 3px;
+  border-top-right-radius: 3px 3px;
+  border-bottom-right-radius: 3px 3px;
+  top: 111px;
+  left: 345px;
+}
+
+.silent-switch{
+  position: absolute;
+  background: #1e1e1e;
+  height: 25px;
+  width: 3px;
+  border-top-left-radius: 3px 3px;
+  border-bottom-left-radius: 3px 3px;
+  top: 60px;
+  left: -3px;
+}
+
+.volume{
+  position: absolute;
+  background: #1e1e1e;
+  width: 3px;
+  height: 35px;
+  border-top-left-radius: 3px 3px;
+  border-bottom-left-radius: 3px 3px;
+  left: -3px;
+}
+
+.up{
+  top: 105px;
+}
+
+.down{
+  top: 145px;
+}
+
+.screen{
+  position: absolute;
+  overflow: hidden;
+  height: 593px;
+  width: 325px;
+  top: 10px;
+  left: 10px; 
+  border-radius: 15px;
+}
+
+.home-button{
+  position: absolute;
+  border: 1px solid #7A7A7A;
+  height: 35px;
+  width: 35px;
+  border-radius: 25px;
+  bottom: 12px;
+  left: 50%;
+  margin-left: -18px;
+  display: none;
+}
+
+
