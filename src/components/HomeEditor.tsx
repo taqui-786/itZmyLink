@@ -22,7 +22,7 @@ const HomeEditor = () => {
     <DemoBtn/>
     <Link
               target='_blank'
-              href="https://github.com/sujjeee/linknode"
+              href="https://mdtaquijhar.gumroad.com/l/mernproject"
               className={buttonVariants()}>
               <ShoppingCart className='mr-2 h-4 w-4' />
               Get Project
