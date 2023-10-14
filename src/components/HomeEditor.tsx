@@ -6,7 +6,7 @@ import AdditionalLinkForm from "./AdditionalLinkForm";
 import Publish from "./ActionButtons/PublishBtn";
 import DemoBtn from "./ActionButtons/DemoBtn";
 import Link from "next/link";
-import { ShoppingCart ,Twitter} from "lucide-react";
+import { ShoppingCart ,Link2} from "lucide-react";
 import { buttonVariants } from "./ui/button";
 const HomeEditor = () => {
   return (
@@ -29,10 +29,10 @@ const HomeEditor = () => {
             </Link>
             <Link
               target='_blank'
-              href="https://twitter.com/Taquiimam14"
+              href="https://bitly.com"
               className={buttonVariants()}>
-              <Twitter className='mr-2 h-4 w-4' />
-              Twitter
+              <Link2 className='mr-2 h-4 w-4' />
+              Shortner
             </Link>
     </div>
       </div>
