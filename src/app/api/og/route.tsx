@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import type { ServerRuntime } from "next"
+import type { ServerRuntime} from "next"
 import { ImageResponse } from "@vercel/og"
 
 export const runtime: ServerRuntime = "edge"
