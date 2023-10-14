@@ -1,3 +1,4 @@
+
 interface DataProps {
     n?: string;
     a?: string;
