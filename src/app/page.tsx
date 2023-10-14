@@ -3,12 +3,12 @@ import Link from "next/link";
 
 
 
-export const siteConfig = {
-  name: "itZmyLink - one page, many links.",
-  description: "itZmyLink help you to Create a personalized page to showcase all your social media profiles in one place.",
-  ogImage: "https://itZmyLink.vercel.app/og-image.png",
-  url: "https://itZmyLink.vercel.app",
-}
+// export const siteConfig = {
+//   name: "itZmyLink - one page, many links.",
+//   description: "itZmyLink help you to Create a personalized page to showcase all your social media profiles in one place.",
+//   ogImage: "https://itZmyLink.vercel.app/og-image.png",
+//   url: "https://itZmyLink.vercel.app",
+// }
 export default function Home() {
   return (
     <div className=" relative h-screen w-full flex justify-center items-center">
