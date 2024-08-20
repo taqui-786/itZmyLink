@@ -36,7 +36,7 @@ const HomeEditor = () => {
             </Link>
     </div>
       </div>
-      <div className="h-auto w-[30%] hidden bg-gray-100 lg:block">
+      <div className="h-auto w-[35%]   hidden bg-gray-100 lg:flex items-center justify-center">
         {/* MOBILE MOCKUP  */}
         <MobileMockup />
       </div>

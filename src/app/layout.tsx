@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     template: `%s - itZmyLink`,
   },
   description: siteConfig.description,
- 
+
   // added new keywords for seo
   keywords: [
     "bitly url shortener",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     "my links",
     "itzmylink",
     "itZmyLink",
-    "mtLink"
+    "mtLink",
   ],
   authors: [
     {
@@ -43,10 +43,7 @@ export const metadata: Metadata = {
     },
   ],
   creator: "Taqui imam",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
+ 
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -66,7 +63,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
-}
+};
 
 export default function RootLayout({
   children,
@@ -74,12 +71,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-      <html lang="en">
-        <body className={inter.className}>
-          <main className="min-h-screen w-screen overflow-hidden ">
-            <Providers>{children}</Providers>
-          </main>
-        </body>
-      </html>
+    <html lang="en">
+      <body className={inter.className}>
+        <main className="relative flex flex-col min-h-screen">
+          <Providers>
+            {/* <Navbar /> */}
+            <div className=" relative flex-grow flex-1">{children}</div>
+            {/* <Footer /> */}
+          </Providers>
+        </main>
+      </body>
+    </html>
   );
 }

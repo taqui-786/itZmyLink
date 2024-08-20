@@ -32,7 +32,7 @@ const selectedBgComponent = selectedBgOption ? selectedBgOption.component : null
 
 
     return(
-        <div className={cn("screen break-words",{"bg-white": !MyLink.bg} )}>
+        <div className={cn("rounded-[2rem] overflow-hidden w-full h-full relative",{"bg-white": !MyLink.bg} )}>
             {
                 isEmpty
                 ? <div className='bg-white w-full  text-sm text-muted-foreground h-full flex justify-center items-center z-20'>Nothing to show...</div>
