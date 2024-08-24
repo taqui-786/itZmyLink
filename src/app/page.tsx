@@ -1,7 +1,8 @@
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import landingPageImg from '../../public/landingPage.png'
 import Image from "next/image";
+import { auth } from "@/components/auth";
+import { redirect } from "next/navigation";
 
 
 export const siteConfig = {
@@ -10,7 +11,9 @@ export const siteConfig = {
   ogImage: "https://itzmylink.vercel.app/og-image.png",
   url: "https://itzmylink.vercel.app",
 }
-export default function Home() {
+export default async function Home() {
+  const session = await auth()
+  if(session?.user) return redirect('/create')
   return (
     <div className=" relative h-screen w-full flex justify-center items-center">
       <div className="bg-white">

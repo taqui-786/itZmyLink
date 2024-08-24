@@ -1,21 +1,21 @@
-// origin : Stackoverflow
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+import { type NextRequest } from 'next/server'
+import { updateSession } from './lib/supabase/supabaseMiddleware'
 
-export function middleware(request: NextRequest) {
-    // Clone the request headers so that we don't modify the original headers object
-    const requestHeaders = new Headers(request.headers);
 
-    // Check if the hosting platform provides the client's IP address and store it in a variable
-    const ip = request.ip || "";
+export async function middleware(request: NextRequest) {
+  // update user's auth session
+  return await updateSession(request)
+}
 
-    // Add the client's IP address to the request headers using the 'x-forwarded-for' field
-    requestHeaders.set("x-forwarded-for", ip);
-
-    // Return a new request object with the updated headers using NextResponse.next()
-    return NextResponse.next({
-        request: {
-            headers: requestHeaders,
-        },
-    });
+export const config = {
+  matcher: [
+    /*
+     * Match all request paths except for the ones starting with:
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     * Feel free to modify this pattern to include more paths.
+     */
+    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+  ],
 }

@@ -1,7 +1,10 @@
-import DisplayScreen from "@/components/screen/DisplayScreen";
-import React from "react";
+import React from 'react'
 
-function page() {
+function ComputerMockup({
+    children,
+  }: {
+    children: React.ReactNode;
+  })  {
   return (
     <div className="min-h-screen w-full flex  items-center justify-center relative">
       <div className="flex flex-col w-auto h-fit ">
@@ -17,13 +20,13 @@ function page() {
             </div>
           </div>
 
-          <div className="bg-zinc-100 rounded-b-lg h-[38rem] border">
-           <DisplayScreen/>
+          <div className="bg-zinc-100 rounded-b-lg h-[38rem] border relative overflow-hidden">
+           {children}
           </div>
         </figure>
       </div>
     </div>
-  );
+  )
 }
 
-export default page;
+export default ComputerMockup

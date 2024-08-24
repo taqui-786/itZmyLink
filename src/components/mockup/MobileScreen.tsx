@@ -1,9 +1,9 @@
 "use client"
-import DisplayData from "./DisplayData"
 import { cn } from "@/lib/utils"
-import { BACKGROUND_OPTIONS } from "./Background/BgSnippets"
 import { useData } from "@/lib/Context"
 import React from "react"
+import { BACKGROUND_OPTIONS } from "../Background/BgSnippets"
+import DisplayScreen from "../screen/DisplayScreen"
 
 const MobileScreen = () =>{
 const {MyLink} = useData()
@@ -41,7 +41,7 @@ const selectedBgComponent = selectedBgOption ? selectedBgOption.component : null
                         {!isEmpty && selectedBgComponent}
                         
                         <div className='h-full pt-10 px-2'>
-                                <DisplayData myData={MyLink}/>
+                                <DisplayScreen myData={MyLink}/>
                         </div>
                     </>
                 )

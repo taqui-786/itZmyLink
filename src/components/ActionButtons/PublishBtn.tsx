@@ -1,8 +1,8 @@
 "use client"
 
 import React, { FC } from 'react'
-import { Button } from '@/components/ui/button'
-import { encodeData } from '@/lib/utils';
+import { Button, buttonVariants } from '@/components/ui/button'
+import { cn, encodeData } from '@/lib/utils';
 
 import { Check, Copy, Send, Share2 } from 'lucide-react';
 import {
@@ -17,10 +17,13 @@ import {
 import { Input } from '@/components/ui/input';
 import { DialogClose } from '@radix-ui/react-dialog';
 import { useData } from '@/lib/Context';
+import Link from 'next/link';
 
-interface PublishProps { }
+interface PublishProps {
+    loggedIn:any
+ }
 
-const Publish: FC<PublishProps> = ({ }) => {
+const Publish: FC<PublishProps> = ({ loggedIn}) => {
     const { MyLink } = useData()
 
     const isEmpty = isEmptyValues(MyLink)
@@ -71,54 +74,58 @@ const Publish: FC<PublishProps> = ({ }) => {
                         You can share your page with others and make it accessible from anywhere.
                     </DialogDescription>
                 </DialogHeader>
+                
                 {!isEmpty ? (
-                    <>
-                        <Input
-                            value={inputLink}
-                            readOnly
-                        />
-                        <DialogFooter>
-                            <div className="flex gap-3 w-full justify-between items-center">
-                                <Button
-                                    className="w-full"
-                                    onClick={() => {
-                                        navigator.share({
-                                            title: `${MyLink.n} - itZmyLink`,
-                                            text: `Find all of ${MyLink.n}'s links in one place.`,
-                                            url: `${inputLink}`,
-                                        })
-                                    }}
-                                >
-                                    <Share2 className="mr-2 h-4 w-4" />
-                                    Share
-                                </Button>
-                                <Button
-                                    className="w-full"
-                                    onClick={() => {
-                                        copyToClipboard()
-                                        setHasCopied(true);
-                                    }}
-                                >
-                                    {
-                                        hasCopied
-                                            ? (
-                                                <>
-                                                    <Check className="mr-2 h-4 w-4" />
-                                                    Copied
-                                                </>
-                                            )
-                                            : (
-                                                <>
-                                                    <Copy className="mr-2 h-4 w-4" />
-                                                    Copy Link
-                                                </>
-                                            )
-                                    }
+                    loggedIn ? 
+                    <Link href={`/preview?data=${encodeData(MyLink)} ` } className={cn(buttonVariants())} >Confirm to publish</Link>:
+                    <Link href={`/auth/signin?callbackUrl=/preview?data=${encodeData(MyLink)} ` } className={cn(buttonVariants())} >Login To Continue</Link>
+                    // <>
+                    //     <Input
+                    //         value={inputLink}
+                    //         readOnly
+                    //     />
+                    //     <DialogFooter>
+                    //         <div className="flex gap-3 w-full justify-between items-center">
+                    //             <Button
+                    //                 className="w-full"
+                                    // onClick={() => {
+                                    //     navigator.share({
+                                    //         title: `${MyLink.n} - itZmyLink`,
+                                    //         text: `Find all of ${MyLink.n}'s links in one place.`,
+                                    //         url: `${inputLink}`,
+                                    //     })
+                                    // }}
+                    //             >
+                    //                 <Share2 className="mr-2 h-4 w-4" />
+                    //                 Share
+                    //             </Button>
+                    //             <Button
+                    //                 className="w-full"
+                                //     onClick={() => {
+                                //         copyToClipboard()
+                                //         setHasCopied(true);
+                                //     }}
+                                // >
+                    //                 {
+                    //                     hasCopied
+                    //                         ? (
+                    //                             <>
+                    //                                 <Check className="mr-2 h-4 w-4" />
+                    //                                 Copied
+                    //                             </>
+                    //                         )
+                    //                         : (
+                    //                             <>
+                    //                                 <Copy className="mr-2 h-4 w-4" />
+                    //                                 Copy Link
+                    //                             </>
+                    //                         )
+                    //                 }
 
-                                </Button>
-                            </div>
-                        </DialogFooter>
-                    </>
+                    //             </Button>
+                    //         </div>
+                    //     </DialogFooter>
+                    // </>
                 ) : (
                     <DialogClose>
                         <Button className="w-full">

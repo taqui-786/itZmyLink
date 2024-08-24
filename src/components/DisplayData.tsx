@@ -46,9 +46,11 @@ const DisplayData:React.FC<DisplayDataProps> = ({ myData }) => {
           <h1 className="text-2xl font-bold mt-4 text-slate-800">{myData.n}</h1>
           <p className="text-sm mt-2 text-slate-600">{myData.a}</p>
         </div>
-        {!EmptySocialLiks && (
+        {/* {!EmptySocialLiks && ( */}
           <div className="flex items-center justify-center flex-wrap">
             { Object.entries(myData).map(([key, value]) => {
+             
+              
                 const excludedKeys = ["i", "n", "a", "bg"];
                 if (key !== "ls" && value && !excludedKeys.includes(key)) {
                     const propIcon = iconMap[key as keyof typeof iconMap];
@@ -88,7 +90,7 @@ const DisplayData:React.FC<DisplayDataProps> = ({ myData }) => {
             })}
           </div>
 
-        )}
+        {/* )} */}
          <ul className="space-y-2">
                 {myData.ls && myData.ls.map((link, id) => (
                     <AdditionalLinkCard

@@ -3,6 +3,7 @@ import NotFound from "../Not-found";
 import { BACKGROUND_OPTIONS } from "@/components/Background/BgSnippets";
 import DisplayData from "@/components/DisplayData";
 import DataLoading from "./loading";
+import DisplayScreen from "@/components/screen/DisplayScreen";
 
 export async function generateMetadata({ searchParams }: any) {
   const data = decodeData(searchParams.data);
@@ -37,7 +38,7 @@ const linkLandingPage = ({ searchParams }: any) => {
   if (!searchParams.data) NotFound();
 
   const data = decodeData(searchParams.data);
-
+  
   const selectedBgOption = data
     ? BACKGROUND_OPTIONS.find((option) => option.code === data.bg)
     : null;
@@ -52,7 +53,7 @@ const linkLandingPage = ({ searchParams }: any) => {
         {selectedBgComponent}
       </div>
       <div className="p-2 pt-10 hide_scrollbar">
-        {data ? <DisplayData myData={data} /> : <DataLoading />}
+        {data ? <DisplayScreen myData={data} /> : <DataLoading />}
       </div>
     </>
   );

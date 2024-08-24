@@ -1,4 +1,3 @@
-import MobileMockup from "./MobileMockup";
 import PersonalInfo from "./PersonalInfo";
 import SocialLinksForm from "./SocialLinkForm";
 import Background from "./Background/BackgroundForm";
@@ -8,17 +7,22 @@ import DemoBtn from "./ActionButtons/DemoBtn";
 import Link from "next/link";
 import { ShoppingCart ,Link2} from "lucide-react";
 import { buttonVariants } from "./ui/button";
-const HomeEditor = () => {
+import Navbar from "./Navbar";
+import { auth } from "./auth";
+import MobileMockup from "./mockup/MobileMockup";
+const HomeEditor = async() => {
+  const session = await auth()
   return (
     <>
 
     <div className="h-screen min-h-screen  w-full overflow-y-auto gap-4 flex flex-col bg-gray-100 py-8 px-16">
+    <Navbar/>
     <PersonalInfo/>
     <SocialLinksForm/>
     <AdditionalLinkForm/>
     <Background/>
     <div className='grid grid-cols-2 md:grid-cols-4 gap-2 justify-center items-center w-full mb-20'>
-    <Publish />
+    <Publish loggedIn={session?.user || null} />
     <DemoBtn/>
     <Link
               target='_blank'
