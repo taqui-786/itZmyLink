@@ -8,7 +8,7 @@ import { redirect } from "next/navigation";
 export const siteConfig = {
   name: "itZmyLink - one page, many links.",
   description: "itZmyLink help you to Create a personalized page to showcase all your social media profiles in one place.",
-  ogImage: "https://itzmylink.vercel.app/og-image.png",
+  ogImage: "https://itzmylink.vercel.app/og-image.jpeg",
   url: "https://itzmylink.vercel.app",
 }
 export default async function Home() {

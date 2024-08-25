@@ -13,10 +13,15 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "./ui/button";
+import { supabaseServer } from "@/lib/supabase/supabaseServer";
 
 async function Navbar() {
   const session = await auth();
-
+  let linkCount = 0
+const supabase = await supabaseServer().from('links').select('*').eq('email',session?.user?.email)
+if(supabase.data?.length){
+  linkCount = supabase.data.length
+}
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
       <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
@@ -24,7 +29,6 @@ async function Navbar() {
           href="https://flowbite.com"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
-          {/* <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Flowbite Logo" /> */}
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             itZmyLink
           </span>
@@ -32,6 +36,8 @@ async function Navbar() {
         <div className="flex items-center space-x-6 rtl:space-x-reverse">
           {/* <a href="tel:5541251234" className="text-sm  text-gray-500 dark:text-white hover:underline">(555) 412-1234</a> */}
           {session?.user ? (
+            <div className="flex gap-3 h-full w-fit">
+              <Link href={'/links'} className={cn(buttonVariants({variant:"outline"}),"flex gap-1")}>My Links <span className="inline-flex items-center py-0.5 px-1.5 rounded-full text-xs font-medium bg-red-500 text-white">{linkCount}</span></Link>
             <DropdownMenu>
               <DropdownMenuTrigger>
                 <Avatar>
@@ -49,7 +55,7 @@ async function Navbar() {
                 <DropdownMenuItem  ><Link href={'/api/auth/signout'}>Logout</Link></DropdownMenuItem>
              
               </DropdownMenuContent>
-            </DropdownMenu>
+            </DropdownMenu></div>
           ) : (
             <Link href={"/auth/signin"} className={cn(buttonVariants({variant:'default'}))}>Login</Link>
           )}

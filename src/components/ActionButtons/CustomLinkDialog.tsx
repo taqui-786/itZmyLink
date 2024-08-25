@@ -21,7 +21,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { ClipboardCopy, Check, ExternalLink } from "lucide-react";
+import { ClipboardCopy, Check, PenSquare } from "lucide-react";
 import { createCustomPath } from "@/lib/supabase/actions";
 
 // Mock function to simulate checking if a path exists in the database
@@ -95,9 +95,10 @@ export default function Component({localLink}:{localLink:string}) {
     <>
       <Dialog>
         <DialogTrigger asChild>
-        <Button  size={"xs"}
-        variant={"subtle"}
-        className="bg-gray-200">Create Custom URL <ExternalLink  className="h-4 w-4 ml-1"  /> </Button>
+        <Button variant="ghost" className="rounded-full hover:bg-gray-100 transition-colors duration-200">
+            <PenSquare className="w-4 h-4 mr-2" />
+            Create Custom URL
+          </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
