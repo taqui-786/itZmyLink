@@ -15,7 +15,7 @@ const HomeEditor = async() => {
   return (
     <>
 
-    <div className="h-screen min-h-screen  w-full overflow-y-auto gap-4 flex flex-col bg-gray-100 py-8 px-16">
+    <div className="h-screen min-h-screen  w-full overflow-y-auto gap-4 flex flex-col bg-gray-100 py-1 px-1 sm:py-8 sm:px-16">
     <Navbar/>
     <PersonalInfo/>
     <SocialLinksForm/>

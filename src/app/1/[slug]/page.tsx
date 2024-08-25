@@ -1,12 +1,22 @@
 import { decodeData } from "@/lib/utils";
-import NotFound from "../Not-found";
 import { BACKGROUND_OPTIONS } from "@/components/Background/BgSnippets";
-import DataLoading from "./loading";
 import DisplayScreen from "@/components/screen/DisplayScreen";
+import { supabaseServer } from "@/lib/supabase/supabaseServer";
+import NotFound from "@/app/Not-found";
+import DataLoading from "../loading";
+type Props = {
+  params: {
+    slug: string;
+  };
+};
+export async function generateMetadata({ params }: Props) {
+    const path = await supabaseServer()
+    .from("links")
+    .select("*")
+    .eq("path", params.slug);
+  if (path.data?.length === 0) return NotFound();
 
-export async function generateMetadata({ searchParams }: any) {
-  const data = decodeData(searchParams.data);
-
+  const data = decodeData(path?.data?.[0].link);
   if (!data) {
     return {};
   }
@@ -33,11 +43,14 @@ export async function generateMetadata({ searchParams }: any) {
   };
 }
 
-const linkLandingPage = ({ searchParams }: any) => {
-  if (!searchParams.data) NotFound();
+const linkLandingPage: React.FC<Props> = async ({ params }) => {
+  const path = await supabaseServer()
+    .from("links")
+    .select("*")
+    .eq("path", params.slug);
+  if (path.data?.length === 0) return NotFound();
 
-  const data = decodeData(searchParams.data);
-  
+  const data = decodeData(path?.data?.[0].link);
   const selectedBgOption = data
     ? BACKGROUND_OPTIONS.find((option) => option.code === data.bg)
     : null;

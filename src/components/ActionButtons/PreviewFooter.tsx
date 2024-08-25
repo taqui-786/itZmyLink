@@ -2,6 +2,16 @@
 import React from "react";
 import { Button } from "../ui/button";
 import { Clipboard, Link } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import CustomLinkDialog from "./CustomLinkDialog";
+
 
 function PreviewFooter({
   MyLink,
@@ -45,10 +55,14 @@ function PreviewFooter({
           "Copied"
         ) : (
           <>
-            Copy <Clipboard className="h-4 w-4 ml-1" />
+            Local URL <Clipboard className="h-4 w-4 ml-1" />
           </>
         )}
       </Button>
+<CustomLinkDialog localLink={inputLink}/>
+
+
+
     </div>
   );
 }
