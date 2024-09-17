@@ -74,7 +74,7 @@ const DisplayScreen: React.FC<DisplayDataProps> = ({ myData }) => {
             </TextEffect>
             <BlurIn
               word={myData.a as string}
-              className=" text-xs md:text-sm mt-2 text-slate-600 text-center"
+              className=" text-xs md:text-sm mt-2 text-slate-600 text-center max-w-[581px]"
             />
           </div>
           {/* Social Icons------- */}

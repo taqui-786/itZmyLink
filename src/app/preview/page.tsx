@@ -1,12 +1,9 @@
-import DisplayScreen from "@/components/screen/DisplayScreen";
 import React from "react";
 import NotFound from "../Not-found";
 import { decodeData } from "@/lib/utils";
-import DataLoading from "../1/loading";
 import ComputerMockup from "@/components/mockup/ComputerMockup";
 import { BACKGROUND_OPTIONS } from "@/components/Background/BgSnippets";
 import PreviewPage from "@/components/PreviewPage";
-import { Button } from "@/components/ui/button";
 import PreviewFooter from "@/components/ActionButtons/PreviewFooter";
 
 function page({ searchParams }: any) {

@@ -1,15 +1,8 @@
 "use client";
 import React from "react";
 import { Button } from "../ui/button";
-import { Check, Clipboard, Link, PenSquare, Share } from "lucide-react";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { Check, Clipboard, Share } from "lucide-react";
+
 import CustomLinkDialog from "./CustomLinkDialog";
 
 function PreviewFooter({
@@ -26,7 +19,7 @@ function PreviewFooter({
     return url;
   }, [MyLink]);
   return (
-    <div className=" absolute z-50 bottom-0 left-0 right-0 m-auto w-fit flex flex-row gap-2 items-center justify-center mb-4  animate-bounce">
+    <div className=" absolute z-50 bottom-0 left-0 right-0 m-auto w-fit flex flex-row gap-2 items-center justify-center mb-4 p-1 rounded-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 animate-bounce">
       <div className="bg-white rounded-full shadow-lg p-1">
         <div className="flex space-x-1">
           <Button

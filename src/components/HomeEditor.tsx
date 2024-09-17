@@ -5,7 +5,7 @@ import AdditionalLinkForm from "./AdditionalLinkForm";
 import Publish from "./ActionButtons/PublishBtn";
 import DemoBtn from "./ActionButtons/DemoBtn";
 import Link from "next/link";
-import { ShoppingCart ,Link2} from "lucide-react";
+import { ShoppingCart ,Link2, Github, Coffee} from "lucide-react";
 import { buttonVariants } from "./ui/button";
 import Navbar from "./Navbar";
 import { auth } from "./auth";
@@ -26,17 +26,17 @@ const HomeEditor = async() => {
     <DemoBtn/>
     <Link
               target='_blank'
-              href="https://mdtaquijhar.gumroad.com/l/mernproject"
+              href="https://github.com/taqui-786/itZmyLink"
               className={buttonVariants()}>
-              <ShoppingCart className='mr-2 h-4 w-4' />
-              Get Project
+              <Github className='mr-2 h-4 w-4' />
+              Github 
             </Link>
             <Link
               target='_blank'
-              href="https://bitly.com"
+              href="https://buymeacoffee.com/taquidevloper"
               className={buttonVariants()}>
-              <Link2 className='mr-2 h-4 w-4' />
-              Shortner
+              <Coffee className='mr-2 h-4 w-4' />
+              Buy Me a Coffee
             </Link>
     </div>
       </div>

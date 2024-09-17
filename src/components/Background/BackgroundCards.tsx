@@ -1,7 +1,5 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-// import { useData } from '@/lib/context/LinkContext';
-// import { BACKGROUND_OPTIONS } from '@/components/background/BgSnippets';
 import { cn } from '@/lib/utils';
 import { BACKGROUND_OPTIONS } from './BgSnippets';
 import { useData } from '@/lib/Context';
@@ -18,7 +16,7 @@ const BackgroundCard: React.FC<BackgroundCardProps> = () => {
                         <Button
                             key={index}
                             variant={"outline"}
-                            className={cn("relative min-h-[60px] min-w-[150px] overflow-hidden text-muted-foreground", {
+                            className={cn("relative min-h-[60px] min-w-[110px] sm:min-w-[150px] overflow-hidden text-muted-foreground", {
                                 'bg-accent text-accent-foreground': MyLink.bg === background.code
                             })}
                             onClick={() => {
